@@ -1,6 +1,7 @@
 import api.User;
 import api.UserApi;
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Assert;
@@ -59,6 +60,7 @@ public class RegistrationTest {
     @Test
     @DisplayName("Успешная регистрация")
     public void registrationSuccessUser() {
+        RestAssured.baseURI = BASE_URL;
         registrationPage.enterName(user.getName());
         registrationPage.enterEmail(user.getEmail());
         registrationPage.enterPassword(user.getPassword());
